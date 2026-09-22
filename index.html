@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mells Only — fanmade music and creative work by an independent creator.">
+  <title>Mells Only — Fanmade Music</title>
+  <style>
+    :root{
+      --bg:#100e10;
+      --panel:#191619;
+      --panel2:#211d21;
+      --text:#f5f0f2;
+      --muted:#bdb3b8;
+      --line:rgba(255,255,255,.11);
+      --accent:#d7c1cf;
+      --accent2:#8f7183;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 5%, rgba(159,119,145,.18), transparent 30%),
+        radial-gradient(circle at 90% 25%, rgba(102,80,94,.14), transparent 28%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1080px,92%);margin:auto}
+    header{
+      min-height:78vh;
+      display:grid;
+      place-items:center;
+      padding:70px 0 50px;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:44px;
+      align-items:center;
+    }
+    .eyebrow{
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-size:.72rem;
+      color:var(--accent);
+      margin-bottom:18px;
+    }
+    h1{
+      font-family:Georgia, "Times New Roman", serif;
+      font-weight:400;
+      font-size:clamp(3.3rem,8vw,6.8rem);
+      line-height:.88;
+      margin:0 0 24px;
+      letter-spacing:-.05em;
+    }
+    .lead{font-size:1.08rem;color:#ddd4d8;max-width:560px}
+    .tag{
+      display:inline-block;
+      margin-top:12px;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:.78rem;
+    }
+    .hero-photo{
+      position:relative;
+      aspect-ratio:4/5;
+      overflow:hidden;
+      border-radius:26px;
+      border:1px solid var(--line);
+      box-shadow:0 30px 70px rgba(0,0,0,.38);
+      background:#222;
+    }
+    .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-photo:after{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.48));
+      pointer-events:none;
+    }
+    section{padding:70px 0}
+    .section-title{
+      display:flex;align-items:end;justify-content:space-between;
+      gap:20px;margin-bottom:25px;
+    }
+    h2{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:2.3rem;font-weight:400;margin:0;
+    }
+    .section-title p{color:var(--muted);margin:0;max-width:540px}
+    .platforms{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+    }
+    .platform{
+      background:linear-gradient(145deg,var(--panel2),var(--panel));
+      border:1px solid var(--line);
+      border-radius:20px;padding:24px;
+      transition:transform .2s ease,border-color .2s ease,background .2s ease;
+    }
+    .platform:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.25)}
+    .platform .num{font-size:.7rem;color:var(--accent);letter-spacing:.18em}
+    .platform h3{font-size:1.25rem;margin:26px 0 6px}
+    .platform p{color:var(--muted);font-size:.9rem;min-height:46px}
+    .go{display:inline-flex;margin-top:12px;font-size:.82rem;color:var(--text)}
+    .go span{margin-left:8px}
+    .about{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;
+    }
+    .copy{
+      background:var(--panel);border:1px solid var(--line);
+      border-radius:22px;padding:28px;
+    }
+    .copy h3{font-family:Georgia,serif;font-size:1.5rem;font-weight:400;margin-top:0}
+    .copy p{color:#cfc5ca;margin-bottom:0}
+    .gallery{
+      display:grid;grid-template-columns:1.1fr .9fr;gap:14px;
+    }
+    .gallery img{
+      width:100%;height:100%;min-height:260px;object-fit:cover;
+      border-radius:20px;border:1px solid var(--line);
+    }
+    footer{
+      border-top:1px solid var(--line);
+      padding:30px 0 45px;color:var(--muted);font-size:.82rem;
+      display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    }
+    .lang{
+      position:fixed;right:18px;top:18px;z-index:10;
+      background:rgba(20,17,20,.82);backdrop-filter:blur(12px);
+      border:1px solid var(--line);border-radius:999px;padding:5px;
+    }
+    .lang button{
+      border:0;background:transparent;color:var(--muted);
+      padding:8px 11px;border-radius:999px;cursor:pointer;font-weight:700;
+    }
+    .lang button.active{background:#eee6ea;color:#161215}
+    [data-pt]{display:none}
+    body.pt [data-en]{display:none}
+    body.pt [data-pt]{display:block}
+    @media(max-width:800px){
+      .hero,.about{grid-template-columns:1fr}
+      header{min-height:auto;padding-top:100px}
+      .hero-photo{max-width:560px;margin:auto}
+      .platforms{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr}
+      .section-title{display:block}
+      .section-title p{margin-top:10px}
+    }
+  </style>
+</head>
+<body>
+  <div class="lang" aria-label="Language selector">
+    <button id="enBtn" class="active" onclick="setLang('en')">EN</button>
+    <button id="ptBtn" onclick="setLang('pt')">PT</button>
+  </div>
+
+  <header class="wrap">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Mells Only · Independent Fanmade Music</div>
+        <h1>MELLS<br>ONLY</h1>
+
+        <div data-en>
+          <p class="lead">
+            A small space for my fanmade music, creative projects and visuals.
+            Inspired by artists such as <strong>Melanie Martinez</strong>, while remaining an independent, unofficial fan project.
+          </p>
+          <span class="tag">FANMADE · UNOFFICIAL · MUSIC</span>
+        </div>
+
+        <div data-pt>
+          <p class="lead">
+            Um espaço para minhas músicas fanmade, projetos criativos e visuais.
+            Inspirado por artistas como <strong>Melanie Martinez</strong>, mas sempre como um projeto independente e não oficial de fã.
+          </p>
+          <span class="tag">FANMADE · NÃO OFICIAL · MÚSICA</span>
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="images/photo-1.jpg" alt="Creative portrait">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap" id="platforms">
+      <div class="section-title">
+        <h2 data-en>Find me</h2>
+        <h2 data-pt>Me encontre</h2>
+        <p data-en>Choose a platform and explore the music, videos and updates.</p>
+        <p data-pt>Escolha uma plataforma para acompanhar as músicas, vídeos e novidades.</p>
+      </div>
+
+      <div class="platforms">
+        <a class="platform" href="https://on.soundcloud.com/8Hzv3ZaYDfdm0Y53zP" target="_blank" rel="noopener">
+          <div class="num">01 / AUDIO</div>
+          <h3>SoundCloud</h3>
+          <p data-en>Listen to my fanmade music and audio projects.</p>
+          <p data-pt>Ouça minhas músicas fanmade e projetos em áudio.</p>
+          <span class="go" data-en>Open SoundCloud <span>↗</span></span>
+          <span class="go" data-pt>Abrir SoundCloud <span>↗</span></span>
+        </a>
+
+        <a class="platform" href="https://www.tiktok.com/@.mells_only.?_r=1&_t=ZS-99vjPmCSzET" target="_blank" rel="noopener">
+          <div class="num">02 / SHORTS</div>
+          <h3>TikTok</h3>
+          <p data-en>Short videos, edits, snippets and creative moments.</p>
+          <p data-pt>Vídeos curtos, edits, trechos e momentos criativos.</p>
+          <span class="go" data-en>Open TikTok <span>↗</span></span>
+          <span class="go" data-pt>Abrir TikTok <span>↗</span></span>
+        </a>
+
+        <a class="platform" href="https://youtube.com/@mells_only?si=nxN1NKw98foq60lS" target="_blank" rel="noopener">
+          <div class="num">03 / VIDEO</div>
+          <h3>YouTube</h3>
+          <p data-en>Fanmade songs, visual projects and uploads.</p>
+          <p data-pt>Músicas fanmade, projetos visuais e novos uploads.</p>
+          <span class="go" data-en>Open YouTube <span>↗</span></span>
+          <span class="go" data-pt>Abrir YouTube <span>↗</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <div class="about">
+        <div class="copy">
+          <h3 data-en>What is Mells Only?</h3>
+          <h3 data-pt>O que é Mells Only?</h3>
+          <p data-en>
+            Mells Only is a personal space for fanmade music and visual ideas.
+            The projects are made for creativity and appreciation, not as official releases from the artists they reference.
+          </p>
+          <p data-pt>
+            Mells Only é um espaço pessoal para músicas fanmade e ideias visuais.
+            Os projetos são feitos por criatividade e admiração, e não são lançamentos oficiais dos artistas aos quais fazem referência.
+          </p>
+        </div>
+        <div class="gallery">
+          <img src="images/photo-2.jpg" alt="Creative portrait in a warm interior">
+          <img src="images/photo-1.jpg" alt="Creative portrait with silver hair">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© Mells Only · Fanmade music project</span>
+    <span data-en>Not affiliated with Melanie Martinez or her official team.</span>
+    <span data-pt>Não afiliado à Melanie Martinez ou à equipe oficial dela.</span>
+  </footer>
+
+  <script>
+    function setLang(lang){
+      document.body.classList.toggle('pt', lang === 'pt');
+      document.getElementById('enBtn').classList.toggle('active', lang === 'en');
+      document.getElementById('ptBtn').classList.toggle('active', lang === 'pt');
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+    }
+  </script>
+</body>
+</html>
